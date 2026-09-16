@@ -1,0 +1,4 @@
+interface:
+  display_name: "Human + AI"
+  short_description: "Risk-scaled delivery for coding agents"
+  default_prompt: "Use $human-ai to deliver the narrowest real outcome with proportional context, verification, independent review, durable context, and safety."

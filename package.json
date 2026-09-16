@@ -1,0 +1,19 @@
+{
+  "name": "human-ai-framework",
+  "private": true,
+  "version": "0.4.0",
+  "description": "Risk-scaled engineering framework for humans working with coding agents.",
+  "keywords": [
+    "pi-package",
+    "agent-skills",
+    "coding-agents",
+    "human-ai",
+    "context-economy",
+    "agent-evals"
+  ],
+  "pi": {
+    "skills": [
+      "skills/human-ai"
+    ]
+  }
+}
