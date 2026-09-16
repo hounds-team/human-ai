@@ -52,6 +52,8 @@ A new policy should normally have at least one of:
 
 Do not add rules only because another framework has them.
 
+When evaluating framework behavior, treat unnecessary user-visible execution narration as a defect. Correctness does not excuse repeated task restatement, tool-choice monologues, or routine retry commentary.
+
 ## Editing canonical text
 
 When updating docs from source material:

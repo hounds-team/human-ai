@@ -56,6 +56,14 @@ No.
 
 Private model reasoning is explicitly outside the trace format. Only externally useful engineering events and short material rationales belong there.
 
+## Why is the agent so quiet while it works?
+
+That is intentional. Human + AI treats human attention as a budget. Routine tool selection, retries, internal debate, and repeated task summaries are execution noise, not progress. The agent should interrupt only for a material decision, a blocker, a useful milestone, or the final handoff.
+
+## Does Human + AI expose chain-of-thought?
+
+No. Preserve observable evidence, decisions, checks, and outcomes instead. Private reasoning is neither a project artifact nor a user-facing progress report.
+
 ## Does Human + AI require Gortex?
 
 No.

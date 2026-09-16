@@ -28,15 +28,21 @@ After edits, inspect the changed symbols for structural problems, missing co-cha
 
 ## Usage rule
 
-Prefer:
+Choose the cheapest reliable operation that answers the next unresolved question. Context-engine capabilities are conditional, not a checklist.
+
+If the exact file and symbol are already known, read the current source directly. Use `relate` or `impact` only when dependency uncertainty can change the implementation or verification plan. Use `diagnose` only when a concrete post-change risk justifies it.
+
+A healthy path often looks like:
 
 ```text
-locate -> relate/impact -> read exact source -> edit -> diagnose
+localize if needed -> read exact source -> edit -> verify
 ```
 
-over broad repository scanning.
+Add relationship, impact, or diagnostic queries only when they close a specific uncertainty. Do not run them merely because the capability exists.
 
 The engine is navigation and compression, not authority. Verify current source/configuration before changing it.
+
+When the runtime renames or wraps context-engine tools, inspect the mounted tool schema once and use the actual callable name. Do not spend user-visible output narrating tool-name mapping. On a schema error, correct the call once; repeated schema confusion is a signal to change approach or surface an integration problem.
 
 ## Gortex
 

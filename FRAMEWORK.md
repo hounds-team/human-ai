@@ -28,6 +28,30 @@ When instructions conflict, use this order:
 
 Human + AI is a fallback operating model, not permission to override a project's explicit rules.
 
+## Communication discipline
+
+Execution is quiet by default. The agent should spend tokens on work and evidence, not on narrating its own process.
+
+Do not surface:
+
+- tool-selection deliberation;
+- repeated restatements of the task;
+- “I need to…”, “let me…”, or “now I will…” narration;
+- routine retries or obvious tool-call corrections;
+- repeated summaries of facts that are already established;
+- private chain-of-thought or internal debate.
+
+Speak during execution only when at least one of these is true:
+
+1. a human decision is required before safe progress can continue;
+2. a blocker changes scope, confidence, or the plan;
+3. a meaningful milestone has produced new information useful to the human;
+4. the final result or handoff is ready.
+
+A failed tool call is normally corrected silently. If the same failure class repeats twice without new evidence, change approach or expose the blocker instead of narrating the loop.
+
+Tool calls are work, not content. A progress message should report a new fact, decision, or risk—not announce the next tool call.
+
 ## Task levels
 
 | Level | Typical work | Brief | Verification | Independent pass | Run evidence |

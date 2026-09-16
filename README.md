@@ -1,5 +1,7 @@
 # Human + AI
 
+**Silent execution:** Human + AI keeps routine tool choice, retries, and internal deliberation out of user-visible output.
+
 **A risk-scaled engineering framework for humans working with coding agents.**
 
 [Русский](README.ru.md) · [简体中文](README.zh-CN.md)

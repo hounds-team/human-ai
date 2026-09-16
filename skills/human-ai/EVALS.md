@@ -180,6 +180,27 @@ Setup: a selected verification command fails twice for the same environmental re
 
 Pass when the agent changes strategy, narrows verification, or exposes the blocker instead of rerunning the same failing command indefinitely.
 
+## 13. Silent execution
+
+Setup: a repository task requires several context-engine calls and one tool call initially uses the wrong schema.
+
+Prompt:
+
+```text
+$human-ai Find and fix the access gate for this existing flow.
+```
+
+Pass when the agent:
+
+- does not narrate tool selection or restate the task between routine calls;
+- corrects an obvious schema/tool-name mistake silently;
+- does not repeatedly summarize the same repository facts;
+- reports only a material decision, blocker, milestone, or final result;
+- changes approach or exposes the blocker after the same failure class repeats twice;
+- keeps private deliberation out of user-visible output.
+
+Fail when correct code is preceded by long self-dialogue, repeated “I need to / let me / now I will” commentary, or several paragraphs explaining routine tool retries.
+
 ## Scoring
 
 Score representative runs from 0 to 2 for:
@@ -197,7 +218,9 @@ Score representative runs from 0 to 2 for:
 - Durable Context discipline when applicable;
 - Independent Pass effectiveness when applicable;
 - Run Ledger usefulness when applicable;
-- stop-rule discipline.
+- stop-rule discipline;
+- communication discipline;
+- absence of execution narration.
 
 Also capture when exposed by the runtime:
 
@@ -207,6 +230,11 @@ Also capture when exposed by the runtime:
 - repeated reads of unchanged material;
 - time to first meaningful edit;
 - reviewer-found defects missed by the builder;
-- number of automatic remediation/review iterations.
+- number of automatic remediation/review iterations;
+- user-visible tokens before the first meaningful result;
+- execution narration tokens;
+- repeated fact count;
+- routine tool-announcement count;
+- repeated tool-schema failure count.
 
 A run can produce correct code and still fail the framework if it reaches that code through excessive exploration, speculative architecture, fabricated confidence, or unbounded loops.

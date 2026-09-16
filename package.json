@@ -1,7 +1,7 @@
 {
   "name": "human-ai-framework",
   "private": true,
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Risk-scaled engineering framework for humans working with coding agents.",
   "keywords": [
     "pi-package",
