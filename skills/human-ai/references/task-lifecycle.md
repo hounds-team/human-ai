@@ -23,25 +23,33 @@ Research the current code and contracts first. Then ask about choices that mater
 
 Do not turn optional edge cases into mandatory requirements without a decision.
 
-## 3. Execute against the brief
+## 3. Pass the Contract Gate
 
-Build the narrowest implementation that satisfies the outcome and constraints.
+For L1/L2/L3 work, write typed interfaces, schemas, or function signatures first. Ensure the boundary is deep and minimal before filling in implementation. See [Code taste](code-taste.md).
+
+## 4. Execute against the brief
+
+Build the narrowest implementation that satisfies the outcome, contracts, and constraints.
 
 If new evidence invalidates the brief, stop at the decision boundary. Local corrections that preserve the agreed behavior are allowed; new behavior is not implied by discovery.
 
-## 4. Verify
+## 5. Verify
 
 Run the evidence named in the brief or the smallest reliable substitute if the planned check is unavailable.
 
 Record why a substitute is adequate.
 
-## 5. Independent Pass when warranted
+## 6. Simplify and Deepen
+
+Before passing to review or closeout, conduct a code-taste pass: remove shallow wrappers, prune redundant branches, and ensure modules remain deep. Verify tests remain green.
+
+## 7. Independent Pass when warranted
 
 Use a fresh review context for L2 material work and L3 affected risk domains.
 
 The reviewer should evaluate the actual revision and evidence, not trust the builder's summary.
 
-## 6. Closeout
+## 8. Closeout
 
 Before handoff:
 

@@ -53,6 +53,10 @@ For L2/L3, use the [Task lifecycle](references/task-lifecycle.md) and write a Ta
 
 Before asking the user about an existing repository fact, try to answer it from repository evidence. Ask humans for intent, trade-offs, priorities, and permissions that code cannot determine.
 
+## Pass the contract gate
+
+For L1/L2/L3 tasks, define typed interface boundaries, schemas, or function stubs *before* writing execution logic. Separate system shape from implementation details to prevent structural drift. See [Code taste](references/code-taste.md).
+
 ## Acquire context economically
 
 Use this order:
@@ -83,7 +87,7 @@ Prefer:
 
 `input -> differentiating action -> visible or persisted result`
 
-Reuse the nearest project pattern, dependency, and framework capability. Prefer direct code over speculative layers and one process over distributed coordination.
+Reuse the nearest project pattern, dependency, and framework capability. Prefer direct code over speculative layers, deep modules over shallow wrappers, and one process over distributed coordination.
 
 Never replace the differentiating core with hardcoded success. Narrow mocks are acceptable at blocked non-core edges when they are explicit.
 
@@ -109,6 +113,16 @@ Do not multiply the same risk across test levels for completeness alone. Do not 
 For visible UI/layout changes, read [Visual evidence](references/visual-evidence.md).
 
 For high-risk boundaries, read [High-risk boundaries](references/high-risk.md) and apply the smallest correct control.
+
+## Simplify and deepen before closeout
+
+Once verification checks pass, do not stop immediately. Run an explicit refactoring pass:
+1. prune accidental line bloat and redundant branching;
+2. eliminate shallow pass-through wrappers;
+3. deepen module interfaces while keeping them narrow;
+4. verify that all automated checks remain green.
+
+See [Code taste](references/code-taste.md).
 
 ## Use independent review when self-confirmation is expensive
 

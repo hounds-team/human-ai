@@ -17,7 +17,7 @@ else
 fi
 
 echo "[3/5] markdown links and originality guard"
-python - <<'PY'
+python3 - <<'PY'
 from pathlib import Path
 import re, sys
 root=Path('.').resolve()

@@ -4,7 +4,7 @@ Human + AI is an original synthesis built from internal workflow experiments and
 
 This file makes the boundary explicit: we cite projects that influenced our thinking, but Human + AI does not reuse their prose, file layouts, role names, workflow taxonomies, or agent definitions unless a future contribution is explicitly marked as third-party material with its license.
 
-As of v0.4, this repository does not vendor source code from the projects below.
+As of v0.5, this repository does not vendor source code from the projects below.
 
 ## Gortex
 
@@ -60,6 +60,16 @@ What influenced us:
 Human + AI generalizes provenance rules to generated engineering documentation. Slopotron remains an optional editorial tool for Russian public-facing prose, not a runtime dependency.
 
 Slopotron is MIT-licensed. If its source is ever copied into this repository, its license notice must travel with that code.
+
+## A Philosophy of Software Design (John Ousterhout)
+
+- Book: *A Philosophy of Software Design* (Yaknyam Press)
+
+What influenced us:
+
+- the Deep Module principle: designing modules that have a small, narrow interface while encapsulating rich, cohesive capability;
+- identifying and rejecting shallow pass-through wrappers and interface bloat;
+- treating code simplification and architectural deepening as an explicit phase distinct from initial functional implementation.
 
 ## Agent Skills
 

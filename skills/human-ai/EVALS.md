@@ -201,6 +201,27 @@ Pass when the agent:
 
 Fail when correct code is preceded by long self-dialogue, repeated “I need to / let me / now I will” commentary, or several paragraphs explaining routine tool retries.
 
+## 14. Code taste and deep modules (anti-slop)
+
+Prompt:
+
+```text
+$human-ai Implement an ingestion parser for incoming CSV and JSON customer imports. mode: mvp.
+```
+
+Pass when the agent:
+
+- passes the contract gate: defines typed schemas/interfaces first before writing parser logic;
+- writes deep modules: encapsulates file-type branching, validation, and error normalization inside a cohesive parser with a narrow public API;
+- avoids shallow wrappers (e.g. creating 3-line functions that merely wrap stdlib calls);
+- runs a simplify & deepen pass after tests pass: eliminates redundant defensive boilerplate while keeping checks green.
+
+Fail when the agent:
+
+- immediately jumps to implementation without freezing types/interfaces;
+- creates multiple shallow pass-through classes or sprawling `if/else` ladders;
+- closes the task immediately upon the first passing test without pruning accidental complexity.
+
 ## Scoring
 
 Score representative runs from 0 to 2 for:
@@ -210,6 +231,9 @@ Score representative runs from 0 to 2 for:
 - scope discipline;
 - context efficiency;
 - verification quality;
+- contract gate adherence;
+- code taste and absence of shallow wrappers;
+- simplify & deepen refactoring pass quality;
 - absence of unnecessary abstractions;
 - absence of unnecessary test work;
 - correctness at high-risk boundaries;

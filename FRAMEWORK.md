@@ -9,8 +9,10 @@ intent
   -> triage
   -> acquire context
   -> establish the task brief
+  -> contract gate (interfaces & types first)
   -> build the narrowest real outcome
   -> verify
+  -> simplify & deepen (code taste & anti-slop pass)
   -> independent pass when justified
   -> close out
   -> retain only durable context
@@ -127,6 +129,16 @@ Before asking the human a repository question, try to answer it from repository 
 
 See [Task lifecycle](skills/human-ai/references/task-lifecycle.md).
 
+## Contract gate
+
+For L1 Ship, L2 Planned, and L3 Guarded tasks, define the narrowest typed interface boundary *before* writing execution logic.
+
+- write type declarations, interfaces, schemas, function signatures, or contract stubs (`.pyi`, `.d.ts`, Pydantic models, traits) first;
+- inspect the contract for depth: minimize surface area exposed to callers while encapsulating essential complexity inside;
+- do not begin implementation until the type and signature boundary is established.
+
+This separates system design from implementation details and prevents ad-hoc type drift and structural slop during generation. See [Code taste](skills/human-ai/references/code-taste.md).
+
 ## Context acquisition
 
 Use the least expensive reliable source first:
@@ -195,11 +207,13 @@ When several implementations are valid, prefer:
 2. an existing dependency;
 3. framework-native capability;
 4. a direct implementation;
-5. one process before distributed coordination;
-6. synchronous behavior before queues/events;
-7. a narrow schema before a generic metadata system;
-8. small local duplication before an abstraction without a current second use;
-9. reversible defaults before a configuration framework.
+5. deep modules (narrow interface, rich encapsulated capability) over shallow pass-through wrappers;
+6. compositional primitives and pattern matching over deep inheritance or sprawling conditionals;
+7. one process before distributed coordination;
+8. synchronous behavior before queues/events;
+9. a narrow schema before a generic metadata system;
+10. small local duplication before an abstraction without a current second use;
+11. reversible defaults before a configuration framework.
 
 Do not add an abstraction because its name sounds architectural. Add it because the current boundary requires it.
 
@@ -234,6 +248,17 @@ Typical choices:
 Do not test the same risk at multiple levels merely to complete a pyramid.
 
 For visual changes, verification may need rendered evidence rather than a successful build. See [Visual evidence](skills/human-ai/references/visual-evidence.md).
+
+## Simplify & Deepen (Code taste and anti-slop)
+
+Passing tests are necessary, but code at the moment of first verification is at its rawest. Before closeout or handoff, run an explicit simplification and deepening pass:
+
+1. **Eliminate shallow wrappers:** delete one-line helper functions and pass-through classes that merely forward calls without adding domain semantics or safety;
+2. **Prune accidental complexity:** reduce unnecessary line count, merge redundant `if/else` ladders, and prefer language-idiomatic pattern matching or lookup tables;
+3. **Deepen module boundaries:** verify that modules expose minimal surface area while encapsulating cohesive internal logic;
+4. **Preserve verification:** re-run verification checks. The simplified implementation must remain green under existing tests.
+
+See [Code taste](skills/human-ai/references/code-taste.md).
 
 ## Independent Pass
 

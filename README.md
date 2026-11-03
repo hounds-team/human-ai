@@ -16,6 +16,7 @@ It provides one portable operating skill for coding agents:
 - ask humans for decisions, not facts the code can answer;
 - keep the differentiating product behavior real;
 - leave inspectable evidence without storing private chain-of-thought;
+- enforce interface contracts before code and eliminate shallow wrappers with a simplify pass;
 - retain only project context that will matter again;
 - turn repeated agent failures into evals before adding more policy.
 
@@ -28,8 +29,10 @@ intent
   -> triage
   -> context
   -> task brief
+  -> contract gate (interfaces & types first)
   -> build
   -> verify
+  -> simplify & deepen (code taste & anti-slop pass)
   -> independent pass when justified
   -> closeout
   -> durable context
@@ -191,6 +194,6 @@ See [INSPIRATIONS.md](INSPIRATIONS.md) and [NOTICE.md](NOTICE.md).
 
 ## Status
 
-**v0.4 — early and intentionally lightweight.**
+**v0.5 — early and intentionally lightweight.**
 
 The framework should earn new complexity from observed failures, not from a desire to look complete.
