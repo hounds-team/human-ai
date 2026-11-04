@@ -72,6 +72,13 @@ tests: none | targeted | required
 
 [Gortex](https://gortex.dev/) 是推荐但非必需的 context engine。
 
+## 确定性质量关卡 (Quality Gates) 与工作区隔离
+
+- **确定性质量把关：** 采用原生 Rust 工具链（Ruff, Oxlint, rumdl 等），非零退出码即阻断流程，支持 `--fix` 自动修复；
+- **Worktree 隔离：** 多 Agent 并发时遵循「1 个可写 Agent = 1 个独立 Git Worktree」，严禁在未提交的同一目录下冲突；
+- **单一协调者集成：** 各分支通过确定性检查依次合入 `main`，消除 Agent 之间的无意义对话开销；
+- **CLI 优先工具链：** 借助 Unix CLI、`--help` 和标准管道与外部工具交互，避免庞大 RPC/MCP 协议带来的上下文与 Token 浪费。
+
 ## 安装
 
 ### Codex

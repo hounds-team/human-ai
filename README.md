@@ -87,6 +87,14 @@ Human + AI adopts deterministic standards enforcement inspired by [Dev Quality G
 - **Enforcement over advice:** Non-zero exit codes fail the build; warnings are not ignored;
 - **Agent self-correction:** Structured diagnostics and `--fix` let agents resolve syntax and style issues autonomously before human review.
 
+## Worktree Isolation & CLI-First Tooling
+
+Human + AI incorporates multi-agent coordination and tooling principles inspired by [Coloph Works & clx](https://github.com/golergka/coloph-works):
+
+- **Worktree isolation:** 1 write-agent = 1 dedicated Git worktree. Parallel coding agents never share uncommitted state or collide in the same directory;
+- **Single coordinator integration:** Branches merge sequentially into `main` through deterministic checks, avoiding peer-to-peer agent chatter;
+- **CLI-first tooling:** Agents naturally read `--help` and inspect stdout. Deterministic project scripts and native CLIs beat bloated RPC/MCP protocols in token economy and reliability.
+
 ## Durable Context
 
 For projects that benefit from cross-session context, Human + AI can use a small router under:

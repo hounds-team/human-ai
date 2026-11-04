@@ -4,7 +4,7 @@ Human + AI is an original synthesis built from internal workflow experiments and
 
 This file makes the boundary explicit: we cite projects that influenced our thinking, but Human + AI does not reuse their prose, file layouts, role names, workflow taxonomies, or agent definitions unless a future contribution is explicitly marked as third-party material with its license.
 
-As of v0.6, this repository does not vendor source code from the projects below.
+As of v0.7, this repository does not vendor source code from the projects below.
 
 ## Gortex
 
@@ -86,6 +86,22 @@ What influenced us:
 Human + AI adopts these principles as the deterministic quality gate layer of its Engineering Harness. We reference Dev Quality Gates as the curated standard for tool selection rather than duplicating or maintaining our own separate tool index.
 
 Dev Quality Gates is MIT-licensed.
+
+## Coloph Works & clx by Max Yankov (golergka)
+
+- https://github.com/golergka/coloph-sync
+- https://github.com/golergka/coloph-works
+- https://github.com/golergka/clx
+
+What influenced us:
+
+- **Worktree isolation:** 1 write-agent = 1 dedicated Git worktree. Parallel coding agents must not share a dirty working directory or collide in the same tree;
+- **Single coordinator integration:** all branches merge back to clean `main` through a single coordinator via deterministic checks (`commit`, `merge`, `integration`), eliminating the $N(N-1)/2$ peer-to-peer coordination explosion;
+- **CLI-first tooling over protocol overhead:** coding agents already know Unix CLI, read `--help`, inspect stdout, and pipe into `jq`/`grep`. Native terminal binaries and project scripts beat bloated RPC/MCP protocols in token cost, latency, and determinism.
+
+Human + AI incorporates worktree isolation into its multi-agent concurrency policy and adopts the Unix Interface Principle for tool design.
+
+Coloph Works and clx are GPL-3.0 and MIT-licensed respectively. Their source code is not vendored in this repository.
 
 ## Agent Skills
 

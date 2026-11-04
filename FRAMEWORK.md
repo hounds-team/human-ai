@@ -218,6 +218,14 @@ When several implementations are valid, prefer:
 
 Do not add an abstraction because its name sounds architectural. Add it because the current boundary requires it.
 
+## CLI-first tooling over protocol overhead
+
+When equipping agents with tools or integrating external services:
+
+- **Prefer Unix CLIs and project scripts:** Agents naturally understand command-line semantics, standard flag conventions, `--help` output, and piping (`| jq`, `| grep`).
+- **Eliminate protocol tax:** Complex RPC/MCP schemas often introduce substantial token overhead, crowd context windows with redundant tool definitions, and cause hallucinated parameters where a simple CLI call already works.
+- **Self-documenting commands:** A deterministic project script (e.g. `./scripts/check`, `./scripts/deploy`, `./scripts/db`) with standard exit codes and clean output is the preferred, testable agent interface.
+
 ## Safety floor
 
 Fast work still obeys minimum correctness at dangerous boundaries.
@@ -301,6 +309,15 @@ A concern is diagnosis, not authorization. The builder may make a local correcti
 Run one fresh pass after implementation. If accepted fixes materially changed the reviewed behavior, one follow-up pass is normally enough. Then stop and expose unresolved concerns instead of creating a review loop.
 
 See [Independent Pass](skills/human-ai/references/independent-pass.md).
+
+## Multi-agent concurrency & Worktree isolation
+
+When tasks are parallelized across multiple subagents or an independent pass modifies code concurrently:
+
+- **1 write-agent = 1 dedicated Git worktree:** Parallel coding agents must never mutate code in the same working directory or collide on shared unstaged state.
+- **Clean coordinator checkout:** The primary checkout (`main`) is reserved for the human operator or a single coordinator process.
+- **Single coordinator integration:** Subagents do not peer-negotiate merges or resolve conflicts via conversational chat. Each branch merges into `main` sequentially through deterministic checks (`merge_check`, `integration_check`).
+- **Zero coordination tax:** Agents interact through isolated branches, files, and explicit exit codes, eliminating quadratic ($N(N-1)/2$) communication loops.
 
 ## Run Ledger
 

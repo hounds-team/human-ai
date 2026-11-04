@@ -87,7 +87,7 @@ Prefer:
 
 `input -> differentiating action -> visible or persisted result`
 
-Reuse the nearest project pattern, dependency, and framework capability. Prefer direct code over speculative layers, deep modules over shallow wrappers, and one process over distributed coordination.
+Reuse the nearest project pattern, dependency, and framework capability. Prefer direct code over speculative layers, deep modules over shallow wrappers, and one process over distributed coordination. Prefer native CLIs and project scripts (`--help`, exit codes) over bloated RPC/MCP protocols to reduce token tax and avoid schema hallucination.
 
 Never replace the differentiating core with hardcoded success. Narrow mocks are acceptable at blocked non-core edges when they are explicit.
 
@@ -142,6 +142,14 @@ The reviewer should receive the Task Brief or outcome, the changed revision, rel
 A concern must be evidence-based. It does not grant permission to expand scope.
 
 Read [Independent Pass](references/independent-pass.md) when review is needed.
+
+## Isolate concurrent agents (Worktree isolation)
+
+When multiple subagents or parallel passes execute concurrently:
+
+- **1 write-agent = 1 Git worktree:** Never allow multiple agents to modify the same working tree or share unstaged state.
+- **Single coordinator:** Merges into `main` are handled sequentially by one coordinator process via deterministic checks (`merge_check`, `integration_check`).
+- Coordinate via isolated branches and exit codes, eliminating ad-hoc conversational negotiation.
 
 ## Leave useful evidence, not hidden reasoning
 

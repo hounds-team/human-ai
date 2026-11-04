@@ -29,7 +29,9 @@ For L1/L2/L3 work, write typed interfaces, schemas, or function signatures first
 
 ## 4. Execute against the brief
 
-Build the narrowest implementation that satisfies the outcome, contracts, and constraints.
+Build the narrowest implementation that satisfies the outcome, contracts, and constraints. Prefer native project CLIs and scripts over bloated RPC/MCP protocols.
+
+If execution runs concurrently across multiple subagents, assign 1 dedicated Git worktree per write-agent. Never let parallel agents share uncommitted working trees.
 
 If new evidence invalidates the brief, stop at the decision boundary. Local corrections that preserve the agreed behavior are allowed; new behavior is not implied by discovery.
 
