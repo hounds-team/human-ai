@@ -110,6 +110,12 @@ Use the smallest check that can actually prove or disprove the changed contract.
 
 Do not multiply the same risk across test levels for completeness alone. Do not fix unrelated baseline failures unless the task requires it.
 
+For deterministic code standards and linters, enforce [Dev Quality Gates](https://github.com/mokevnin/dev-quality-gates):
+- fast, native toolchains first (Ruff, Oxlint, jactionlint, rumdl);
+- enforcement over advice: non-zero exit codes fail the check; warnings are not ignored;
+- agent-friendly machine diagnostics and autofix (`--fix`) for autonomous error resolution;
+- prove that each gate can fail before trusting it.
+
 For visible UI/layout changes, read [Visual evidence](references/visual-evidence.md).
 
 For high-risk boundaries, read [High-risk boundaries](references/high-risk.md) and apply the smallest correct control.

@@ -31,6 +31,7 @@ intent
   -> task brief
   -> contract gate (interfaces & types first)
   -> build
+  -> quality gates (fast native enforcement)
   -> verify
   -> simplify & deepen (code taste & anti-slop pass)
   -> independent pass when justified
@@ -77,6 +78,14 @@ locate -> inspect relationships/impact -> read exact source -> edit -> diagnose
 over repository-wide scanning.
 
 [Gortex](https://gortex.dev/) is a recommended optional context engine. Human + AI remains usable without it.
+
+## Dev Quality Gates
+
+Human + AI adopts deterministic standards enforcement inspired by [Dev Quality Gates](https://github.com/mokevnin/dev-quality-gates):
+
+- **Fast native toolchains first:** Sub-second Rust-native checks (Ruff, Oxlint, jactionlint, rumdl);
+- **Enforcement over advice:** Non-zero exit codes fail the build; warnings are not ignored;
+- **Agent self-correction:** Structured diagnostics and `--fix` let agents resolve syntax and style issues autonomously before human review.
 
 ## Durable Context
 
@@ -194,6 +203,6 @@ See [INSPIRATIONS.md](INSPIRATIONS.md) and [NOTICE.md](NOTICE.md).
 
 ## Status
 
-**v0.5 — early and intentionally lightweight.**
+**v0.6 — early and intentionally lightweight.**
 
 The framework should earn new complexity from observed failures, not from a desire to look complete.

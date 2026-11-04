@@ -28,8 +28,11 @@ intent
   -> triage
   -> context
   -> task brief
+  -> contract gate (interfaces & types first)
   -> build
+  -> dev quality gates (fast native enforcement)
   -> verify
+  -> simplify & deepen (code taste & anti-slop pass)
   -> independent pass when justified
   -> closeout
   -> durable context
@@ -125,4 +128,4 @@ Human + AI 会研究公开的代理工程项目，但不会把它们当作模板
 
 ## 状态
 
-**v0.5 — 早期版本，并且有意保持轻量。**
+**v0.6 — 早期版本，并且有意保持轻量。**

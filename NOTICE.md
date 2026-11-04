@@ -1,6 +1,6 @@
 # Third-party notice
 
-Human + AI v0.5 contains original repository text, scripts, and skill definitions.
+Human + AI v0.6 contains original repository text, scripts, and skill definitions.
 
 Public projects listed in `INSPIRATIONS.md` are referenced for ideas, interoperability, or optional integrations. Their source code is not vendored in this release.
 

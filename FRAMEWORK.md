@@ -11,6 +11,7 @@ intent
   -> establish the task brief
   -> contract gate (interfaces & types first)
   -> build the narrowest real outcome
+  -> quality gates (fast native enforcement)
   -> verify
   -> simplify & deepen (code taste & anti-slop pass)
   -> independent pass when justified
@@ -248,6 +249,20 @@ Typical choices:
 Do not test the same risk at multiple levels merely to complete a pyramid.
 
 For visual changes, verification may need rendered evidence rather than a successful build. See [Visual evidence](skills/human-ai/references/visual-evidence.md).
+
+## Quality gates (Deterministic enforcement)
+
+Human + AI incorporates deterministic standards enforcement inspired by and citing [Dev Quality Gates by Kirill Mokevnin](https://github.com/mokevnin/dev-quality-gates).
+
+Rather than treating linting and code hygiene as passive warnings or advisory reports that human reviewers ignore, Human + AI uses quality gates as an unbypassable machine-readable boundary for coding agents:
+
+1. **Enforcement over advice:** A quality gate must return a non-zero exit code on standard violations. Warnings are treated as blocking errors; reports that nobody reads do not count.
+2. **Fast native toolchains first:** Prefer single Rust-native binaries (such as Ruff, Oxlint, rumdl, jactionlint) that execute in sub-second time over multi-layered runtime bloat. Sub-second feedback loops allow agents to self-correct in place before context degrades.
+3. **Agent-friendly machine diagnostics:** Gates provide structured, non-interactive output (JSON/SARIF) and safe autofix (`--fix`). Coding agents treat gate diagnostics as an autonomous self-correction loop before human inspection.
+4. **Coverage over quantity:** Replace sprawling collections of narrow single-purpose linters with high-coverage unified toolchains.
+5. **Negative proof:** Every quality gate wired into hooks or CI must be proven capable of failing on an intentional violation before it is trusted.
+
+See [INSPIRATIONS.md](INSPIRATIONS.md) and [Code taste](skills/human-ai/references/code-taste.md).
 
 ## Simplify & Deepen (Code taste and anti-slop)
 

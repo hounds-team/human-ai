@@ -54,3 +54,12 @@ When all tests and verifications are green, the code is functional but unrefined
 3. **Verify invariants:**
    - Re-run test suites and type checkers.
    - Refactoring must not break external behavior or observable contracts.
+
+---
+
+## 4. Deterministic Quality Gates
+
+Do not waste human attention or debate code style with agents. Follow [Dev Quality Gates](https://github.com/mokevnin/dev-quality-gates):
+- **Fast native binaries:** Use single Rust-native binaries (Ruff, Oxlint, jactionlint, rumdl) that provide sub-second verification.
+- **Fail the build:** Enforce zero-tolerance exit codes on standard violations; unread advisory reports do not count.
+- **Agent self-correction:** Machine-readable diagnostics and automated fixes (`--fix`) allow agents to resolve syntax, style, and hygiene issues before asking for human review.

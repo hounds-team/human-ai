@@ -4,7 +4,7 @@ Human + AI is an original synthesis built from internal workflow experiments and
 
 This file makes the boundary explicit: we cite projects that influenced our thinking, but Human + AI does not reuse their prose, file layouts, role names, workflow taxonomies, or agent definitions unless a future contribution is explicitly marked as third-party material with its license.
 
-As of v0.5, this repository does not vendor source code from the projects below.
+As of v0.6, this repository does not vendor source code from the projects below.
 
 ## Gortex
 
@@ -70,6 +70,22 @@ What influenced us:
 - the Deep Module principle: designing modules that have a small, narrow interface while encapsulating rich, cohesive capability;
 - identifying and rejecting shallow pass-through wrappers and interface bloat;
 - treating code simplification and architectural deepening as an explicit phase distinct from initial functional implementation.
+
+## Dev Quality Gates by Kirill Mokevnin
+
+- https://github.com/mokevnin/dev-quality-gates
+
+What influenced us:
+
+- **Enforcement over advice:** tools must fail a build (non-zero exit code) when standards are violated; passive reports that nobody reads do not count;
+- **Fast native toolchains first:** modern stacks converge on Rust-native tools (Ruff, Oxlint, rumdl, jactionlint) that do linting, formatting, and analysis in single binaries with sub-second feedback loops;
+- **Agent-friendly machine diagnostics:** machine-readable structured output (JSON, SARIF) and safe autofix (`--fix`) as first-class primitives for coding agents;
+- **Coverage over quantity:** one unified high-coverage tool per job beats a sprawl of narrow legacy checks;
+- **Negative proof:** requiring that a gate is proven capable of failing before it is trusted.
+
+Human + AI adopts these principles as the deterministic quality gate layer of its Engineering Harness. We reference Dev Quality Gates as the curated standard for tool selection rather than duplicating or maintaining our own separate tool index.
+
+Dev Quality Gates is MIT-licensed.
 
 ## Agent Skills
 

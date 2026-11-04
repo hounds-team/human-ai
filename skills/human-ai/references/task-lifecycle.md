@@ -33,23 +33,30 @@ Build the narrowest implementation that satisfies the outcome, contracts, and co
 
 If new evidence invalidates the brief, stop at the decision boundary. Local corrections that preserve the agreed behavior are allowed; new behavior is not implied by discovery.
 
-## 5. Verify
+## 5. Pass Quality Gates
+
+Before passing to functional verification, run the project's configured deterministic quality gates ([Dev Quality Gates](https://github.com/mokevnin/dev-quality-gates)):
+- run fast native toolchains (Ruff, Oxlint, jactionlint, rumdl);
+- enforce non-zero exit codes for all violations without ignoring warnings;
+- leverage machine diagnostics and `--fix` for autonomous self-correction.
+
+## 6. Verify
 
 Run the evidence named in the brief or the smallest reliable substitute if the planned check is unavailable.
 
 Record why a substitute is adequate.
 
-## 6. Simplify and Deepen
+## 7. Simplify and Deepen
 
 Before passing to review or closeout, conduct a code-taste pass: remove shallow wrappers, prune redundant branches, and ensure modules remain deep. Verify tests remain green.
 
-## 7. Independent Pass when warranted
+## 8. Independent Pass when warranted
 
 Use a fresh review context for L2 material work and L3 affected risk domains.
 
 The reviewer should evaluate the actual revision and evidence, not trust the builder's summary.
 
-## 8. Closeout
+## 9. Closeout
 
 Before handoff:
 
